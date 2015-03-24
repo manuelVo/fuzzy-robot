@@ -6,11 +6,15 @@ from PIL import Image, ImageTk
 import savesync
 import os.path
 import configuration as config
+import platform
 
 root = Tk()
 root.title("Fuzzy Robot")
 mainframe = Frame(root)
 mainframe.grid(sticky=(N,W,E,S))
+
+if platform.system() == "Linux":
+	ttk.Style().theme_use("alt")
 
 def browse_cloudfolder ( ):
 	newdir = filedialog.askdirectory()
