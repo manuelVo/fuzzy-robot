@@ -62,6 +62,7 @@
 				"directory": true,
 				"name": "MiniMetro",
 				"locations": {
+					"Linux": "~/.config/unity3d/Dinosaur Polo Club/MiniMetro",
 					"Windows": "%USERPROFILE%\\AppData\\LocalLow\\Dinosaur Polo Club\\MiniMetro"
 				}
 			}
