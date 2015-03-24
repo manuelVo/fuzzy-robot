@@ -1,2 +1,178 @@
 [
+	{
+		"id": "amnesia_the_dark_descent",
+		"name": "Amnesia: The Dark Descent",
+		"files": [
+			{
+				"directory": true,
+				"name": "Main",
+				"locations": {
+					"Linux": "~/.frictionalgames/Amnesia/Main",
+					"Windows": "%USERPROFILE%\\Documents\\Amnesia\\Main"
+				}
+			}
+		]
+	},
+	{
+		"id": "borderlands_2",
+		"name": "Borderlands 2",
+		"files": [
+			{
+				"directory": true,
+				"name": "savedata",
+				"locations": {
+					"Linux": "~/.local/share/aspyr-media/borderlands 2/willowgame/savedata",
+					"Windows": "%USERPROFILE%\\Documents\\My Games\\borderlands 2\\willowgame\\savedata"
+				}
+			}
+		]
+	},
+	{
+		"id": "medieval_engineers",
+		"name": "Medieval Engineers",
+		"files": [
+			{
+				"directory": true,
+				"name": "Saves",
+				"locations": {
+					"Windows": "%APPDATA%\\MedievalEngineers\\Saves"
+				}
+			}
+		]
+	},
+	{
+		"id": "minecraft",
+		"name": "Minecraft",
+		"files": [
+			{
+				"directory": true,
+				"name": "saves",
+				"locations": {
+					"Linux": "~/.minecraft/saves",
+					"Windows": "%APPDATA%\\.minecraft\\saves"
+				}
+			}
+		]
+	},
+	{
+		"id": "mini_metro",
+		"name": "Mini Metro",
+		"files": [
+			{
+				"directory": true,
+				"name": "MiniMetro",
+				"locations": {
+					"Windows": "%USERPROFILE%\\AppData\\LocalLow\\Dinosaur Polo Club\\MiniMetro"
+				}
+			}
+		]
+	},
+	{
+		"id": "mirrors_edge",
+		"name": "Mirror's Edge",
+		"files": [
+			{
+				"directory": true,
+				"name": "Savefiles",
+				"locations": {
+					"Windows": "%USERPROFILE%\\Documents\\EA Games\\Mirror's Edge"
+				}
+			}
+		]
+	},
+	{
+		"id": "papers_please",
+		"name": "Papers, Please",
+		"files": [
+			{
+				"directory": true,
+				"name": "PapersPlease",
+				"locations": {
+					"Windows": "%APPDATA%\\3909\\PapersPlease"
+				}
+			}
+		]
+	},
+	{
+		"id": "penumbra_black_plague",
+		"name": "Penumbra Black Plague",
+		"files": [
+			{
+				"directory": true,
+				"name": "save",
+				"locations": {
+					"Linux": "~/.frictionalgames/Penumbra/Black Plague/save",
+					"Windows": "%USERPROFILE%\\Documents\\Penumbra\\Black Plague\\save"
+				}
+			}
+		]
+	},
+	{
+		"id": "penumbra_overture",
+		"name": "Penumbra Overture",
+		"files": [
+			{
+				"directory": true,
+				"name": "save",
+				"locations": {
+					"Linux": "~/.frictionalgames/Penumbra/Overture/save",
+					"Windows": "%USERPROFILE%\\Documents\\Penumbra\\Overture\\save"
+				}
+			}
+		]
+	},
+	{
+		"id": "penumbra_requiem",
+		"name": "Penumbra Requiem",
+		"files": [
+			{
+				"directory": true,
+				"name": "save",
+				"locations": {
+					"Linux": "~/.frictionalgames/Penumbra/Requiem/save",
+					"Windows": "%USERPROFILE%\\Documents\\Penumbra\\Requiem\\save"
+				}
+			}
+		]
+	},
+	{
+		"id": "prison_architect",
+		"name": "Prison Architect",
+		"files": [
+			{
+				"directory": true,
+				"name": "saves",
+				"locations": {
+					"Linux": "~/.Prison Architect/saves",
+					"Windows": "%LOCALAPPDATA%\\Introversion\\Prison Architect\\saves"
+				}
+			}
+		]
+	},
+	{
+		"id": "roller_coaster_tycoon_3",
+		"name": "Roller Coaster Tycoon 3",
+		"files": [
+			{
+				"directory": true,
+				"name": "RCT3",
+				"locations": {
+					"Windows": "%USERPROFILE%\\Documents\\RCT3"
+				 }
+			}
+		]
+	},
+	{
+		"id": "the_bridge",
+		"name": "The Bridge",
+		"files": [
+			{
+				"directory": true,
+				"name": "The Bridge Save",
+				"locations": {
+					"Windows": "%USERPROFILE%\\Documents\\SavedGames\\The Bridge\\The Bridge Save"
+				}
+			}
+		]
+	}
 ]
