@@ -5,8 +5,7 @@ import json
 import configuration as config
 
 def detect_games ( ):
-	with open("games.json") as games_file:
-		games = json.load(games_file)
+	games = config.games
 	detected_games = []
 	for game in games:
 		game_found = False

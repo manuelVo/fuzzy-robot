@@ -47,7 +47,7 @@ Add an entry for your game which looks like this:
 - **name** is the name under which the file/directory will be synchronized. Ideally this is the same name as the local file/directory. However each name is only allowed once per game.
 - **locations** lists the locations at which the file/directory is stored in different operating systems. The name the operating system ist the one returned by the pyhton call *system.platform()*
 
-To add an image for the game save it as *<game_id>.png* into the *images/* folder.
+To add an image for the game save it as *game_id.png* into the *images/* folder.
 
 ## TODO
 ### General
@@ -56,7 +56,6 @@ To add an image for the game save it as *<game_id>.png* into the *images/* folde
 ### Backend
 - Add support for old games which put their save files into their installation folder instead of the user folder
 - Add support for games using the steam cloud
-- Add updater for the list of supported games
 - Add an option to revert games back from synchronized state to local saving
 
 ### Frontend
