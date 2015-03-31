@@ -1,5 +1,19 @@
 [
 	{
+		"id": "amnesia_a_machine_for_pigs",
+		"name": "Amnesia: A Machine for Pigs",
+		"files": [
+			{
+				"directory": true,
+				"name": "Pig",
+				"locations": {
+					"Linux": "~/.frictionalgames/Amnesia/Pig",
+					"Windows": "%USERPROFILE%\\Documents\\Amnesia\\Pig"
+				}
+			}
+		]
+	},
+	{
 		"id": "amnesia_the_dark_descent",
 		"name": "Amnesia: The Dark Descent",
 		"files": [
