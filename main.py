@@ -73,7 +73,9 @@ def synchronize ():
 	draw_main_window()
 
 def update():
+	global games
 	config.update_games()
+	games = savesync.detect_games()
 	draw_main_window()
 
 Button(root, text="Synchronize selected", command=synchronize).grid(row=2, column=1, sticky=W)
