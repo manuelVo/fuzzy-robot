@@ -42,6 +42,20 @@
 		]
 	},
 	{
+		"id": "chivalry_medieval_warfare",
+		"name": "Chivalry: Medieval Warfare",
+		"files": [
+			{
+				"directory": false,
+				"name": "UDKCustomization.ini",
+				"locations": {
+					"Linux": "~/.local/share/TornBanner/Chivalry/UDKGame/Config/UDKCustomization.ini",
+					"Windows": "%USERPROFILE%\\Documents\\My Games\\Chivalry Medieval Warfare\\UDKGame\\Config\\UDKCustomization.ini"
+				}
+			}
+		]
+	},
+	{
 		"id": "medieval_engineers",
 		"name": "Medieval Engineers",
 		"files": [
