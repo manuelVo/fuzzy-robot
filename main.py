@@ -34,8 +34,8 @@ def apply_cloudfolder():
     if os.path.isdir(folder):
         config.cloudfolder = folder
         config.save()
+        update()
         folderpicker.withdraw()
-        draw_main_window()
         root.deiconify()
     else:
         messagebox.showerror("Invalid folder", "The selected folder doesn't exist")
