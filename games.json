@@ -76,6 +76,7 @@
 				"directory": true,
 				"name": "saves",
 				"locations": {
+					"Darwin": "~/Library/Application Support/minecraft/saves",
 					"Linux": "~/.minecraft/saves",
 					"Windows": "%APPDATA%\\.minecraft\\saves"
 				}
