@@ -105,7 +105,7 @@
 				"directory": true,
 				"name": "Savefiles",
 				"locations": {
-					"Windows": "%USERPROFILE%\\Documents\\EA Games\\Mirror's Edge"
+					"Windows": "%USERPROFILE%\\Documents\\EA Games\\Mirror's Edge\\TdGame\\Savefiles"
 				}
 			}
 		]
