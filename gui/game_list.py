@@ -1,6 +1,7 @@
-from PySide.QtCore import *
-from PySide.QtGui import *
 import os
+
+from PySide.QtGui import *
+
 import configuration as config
 
 
@@ -15,7 +16,7 @@ class GameList(QListView):
         self.model.appendRow(QStandardItem("test"))
         pass
 
-    def set_games(self, games, default_state=Qt.PartiallyChecked):
+    def set_games(self, games, default_state):
         self.model.clear()
         for game in games:
             item = QStandardItem()
@@ -23,7 +24,10 @@ class GameList(QListView):
             item.setIcon(QIcon(os.path.join(config.game_images_folder, game.id + ".png")))
             item.setCheckable(True)
             item.setCheckState(default_state)
+            item.setSelectable(False)
+            item.setEditable(False)
             item.game = game
             self.model.appendRow(item)
             self.show()
+
 
