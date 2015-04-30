@@ -34,6 +34,11 @@ def exists():
 def load():
     global games
     global cloudfolder
+
+    if not os.path.isdir(data_directory):
+        create_data_dir()
+        save()
+
     filepath = expand_path(os.path.join(data_directory, CONFIG_FILE_NAME))
     with open(filepath) as configuration_file:
         config = json.load(configuration_file)
@@ -45,12 +50,15 @@ def load():
     else:
         update_games()
 
-
-def save():
+def create_data_dir():
     try:
         os.makedirs(data_directory)
     except FileExistsError:
         pass
+
+
+def save():
+    create_data_dir()
     data = {"cloudfolder": cloudfolder}
     filepath = expand_path(os.path.join(data_directory, CONFIG_FILE_NAME))
     with open(filepath, 'w') as configuration_file:
