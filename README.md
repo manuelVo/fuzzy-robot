@@ -63,6 +63,7 @@ Installation of requirements for Ubuntu users:
 - Add support for old games which put their save files into their installation folder instead of the user folder
 - Add support for games using the steam cloud
 - Add an option to revert games back from synchronized state to local saving
+- Check if a missing config file (and thus empty cloud folder string) causes odd behaviour
 
 ### Frontend
 - Get rid of tkinter
@@ -70,3 +71,6 @@ Installation of requirements for Ubuntu users:
 - Gui for linux which looks less crappy
 - Add an option to change the synchronization folder
 - Better conflict resolution dialog
+
+### CLI
+- Create it
