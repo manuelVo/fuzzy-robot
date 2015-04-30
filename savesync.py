@@ -24,6 +24,7 @@ def detect_games():
                     game_found = True
                     break
         if game_found:
+            game.is_synchronized = is_synchronized(game)
             detected_games.append(game)
     return detected_games
 
