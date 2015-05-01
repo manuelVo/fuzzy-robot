@@ -12,7 +12,6 @@ class MainWindow(QWidget):
 
         self.list_found_games = None
         self.list_synchronized_games = None
-        self.folderpicker = None
 
         self.setWindowTitle("Fuzzy Robot")
         self.init_ui()
@@ -46,9 +45,9 @@ class MainWindow(QWidget):
         layout.addWidget(button_group, 1, 3, Qt.AlignTop)
 
         if not config.exists():
-            self.folderpicker = SyncfolderPicker()
-            if self.folderpicker.exec():
-                config.cloudfolder = self.folderpicker.get_syncfolder()
+            folderpicker = SyncfolderPicker()
+            if folderpicker.exec():
+                config.cloudfolder = folderpicker.get_syncfolder()
                 config.save()
 
         if config.exists():
@@ -57,7 +56,6 @@ class MainWindow(QWidget):
 
         self.center()
         self.show()
-
 
     def center(self):
         geometry = self.frameGeometry()
@@ -70,7 +68,14 @@ class MainWindow(QWidget):
         self.list_synchronized_games.set_games([game for game in games if game.is_synchronized], Qt.Unchecked)
 
     def synchronize_games(self):
-        # Handle case in which syncfolder isn't set yet
+        if config.cloudfolder is None:
+            folderpicker = SyncfolderPicker()
+            if not folderpicker.exec():
+                return
+            config.cloudfolder = folderpicker.get_syncfolder()
+            config.save()
+            config.load()
+
         model = self.list_found_games.model
         for row in range(0, model.rowCount()):
             item = model.item(row)
