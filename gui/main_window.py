@@ -1,6 +1,7 @@
 from PySide.QtCore import *
 from PySide.QtGui import *
 from gui.game_list import GameList
+from gui.syncfolder_picker import SyncfolderPicker
 import savesync
 import configuration as config
 
@@ -8,8 +9,12 @@ import configuration as config
 class MainWindow(QWidget):
     def __init__(self):
         super(MainWindow, self).__init__()
+
         self.list_found_games = None
         self.list_synchronized_games = None
+        self.folderpicker = None
+
+        self.setWindowTitle("Fuzzy Robot")
         self.init_ui()
 
     def init_ui(self):
@@ -40,33 +45,40 @@ class MainWindow(QWidget):
 
         layout.addWidget(button_group, 1, 3, Qt.AlignTop)
 
-        config.load()
-        games = savesync.detect_games()
-        self.list_found_games.set_games([game for game in games if not game.is_synchronized], Qt.Checked)
-        self.list_synchronized_games.set_games([game for game in games if game.is_synchronized], Qt.Unchecked)
+        if not config.exists():
+            self.folderpicker = SyncfolderPicker()
+            if self.folderpicker.exec():
+                config.cloudfolder = self.folderpicker.get_syncfolder()
+                config.save()
+
+        if config.exists():
+            config.load()
+            self.refresh_games()
 
         self.center()
+        self.show()
+
 
     def center(self):
         geometry = self.frameGeometry()
         geometry.moveCenter(QDesktopWidget().availableGeometry().center())
         self.move(geometry.topLeft())
-        self.show()
+
+    def refresh_games(self):
+        games = savesync.detect_games()
+        self.list_found_games.set_games([game for game in games if not game.is_synchronized], Qt.Checked)
+        self.list_synchronized_games.set_games([game for game in games if game.is_synchronized], Qt.Unchecked)
 
     def synchronize_games(self):
+        # Handle case in which syncfolder isn't set yet
         model = self.list_found_games.model
         for row in range(0, model.rowCount()):
             item = model.item(row)
             if item.checkState() == Qt.Checked:
                 # TODO Check for conflicts
                 savesync.move_save_to_cloud(item.game)
-        games = savesync.detect_games()
-        self.list_found_games.set_games([game for game in games if not game.is_synchronized], Qt.Checked)
-        self.list_synchronized_games.set_games([game for game in games if game.is_synchronized], Qt.Unchecked)
+        self.refresh_games()
 
     def update_games_list(self):
         config.update_games()
-        games = savesync.detect_games()
-        self.list_found_games.set_games([game for game in games if not game.is_synchronized], Qt.Checked)
-        self.list_synchronized_games.set_games([game for game in games if game.is_synchronized], Qt.Unchecked)
-        pass
+        self.refresh_games()

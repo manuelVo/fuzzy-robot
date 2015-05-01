@@ -10,11 +10,6 @@ class GameList(QListView):
         super().__init__(parent)
         self.model = QStandardItemModel(self)
         self.setModel(self.model)
-        self.init_ui()
-
-    def init_ui(self):
-        self.model.appendRow(QStandardItem("test"))
-        pass
 
     def set_games(self, games, default_state):
         self.model.clear()
@@ -29,5 +24,3 @@ class GameList(QListView):
             item.game = game
             self.model.appendRow(item)
             self.show()
-
-
