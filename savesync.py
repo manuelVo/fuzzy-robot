@@ -1,3 +1,4 @@
+import os
 import os.path
 import shutil
 import platform
@@ -24,6 +25,7 @@ def detect_games():
                     game_found = True
                     break
         if game_found:
+            game.is_synchronized = is_synchronized(game)
             detected_games.append(game)
     return detected_games
 
@@ -99,3 +101,13 @@ def remove_local_savegame(game):
 def remove_cloud_savegame(game):
     path_in_cloud = config.expand_path(os.path.join(config.cloudfolder, game.id))
     shutil.rmtree(path_in_cloud)
+
+
+def move_game_to_other_cloud(game, new_cloud):
+    new_path = os.path.join(new_cloud, game.id)
+    shutil.move(os.path.join(config.cloudfolder, game.id), new_path)
+    if game.is_synchronized:
+        for file in game.files:
+            link_location = config.expand_path(file.locations[platform.system()])
+            os.remove(link_location)
+            os.symlink(os.path.join(new_path, file.name), link_location, file.directory)

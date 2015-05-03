@@ -10,7 +10,7 @@ from game import Game
 CONFIG_FILE_NAME = "config.json"
 GAMES_FILE_NAME = "games.json"
 INSTALLED_GAMES_FILE_NAME = "installed_games.json"
-cloudfolder = ""
+cloudfolder = None
 games = []
 
 
