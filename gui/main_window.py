@@ -38,6 +38,10 @@ class MainWindow(QWidget):
         button_synchronize.clicked.connect(self.synchronize_games)
         layout.addWidget(button_synchronize, 2, 0)
 
+        button_unsynchronize = QPushButton("Unsynchronize selected", self)
+        button_unsynchronize.clicked.connect(self.unsynchronize_games)
+        layout.addWidget(button_unsynchronize, 2, 1)
+
         button_group = QWidget(self)
         button_group_layout = QVBoxLayout(button_group)
 
@@ -107,6 +111,17 @@ class MainWindow(QWidget):
                 else:
                     savesync.move_save_to_cloud(game)
         self.refresh_games()
+
+    def unsynchronize_games(self):
+        model = self.list_synchronized_games.model
+        games = [model.item(row).game for row in range(0, model.rowCount()) if model.item(row).checkState() == Qt.Checked]
+        if len(games) > 0:
+            keep_saves = QMessageBox.question(self, "Unsynchronize saves", "Do you want to keep a copy of the saves in the sync folder?", QMessageBox.Yes | QMessageBox.No)
+            keep_saves = True if keep_saves == QMessageBox.Yes else False
+            for game in games:
+                savesync.unsync_save(game, keep_saves)
+        self.refresh_games()
+
 
     def update_games_list(self):
         config.update_games()

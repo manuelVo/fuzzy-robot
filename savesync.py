@@ -58,6 +58,20 @@ def move_save_to_cloud(game):
                 pass
 
 
+def unsync_save(game, keep_in_cloud):
+    path_in_cloud = config.expand_path(os.path.join(config.cloudfolder, game.id))
+    for file in game.files:
+        original_filepath = original_filepath = config.expand_path(file.locations[platform.system()])
+        filepath_in_cloud = config.expand_path(os.path.join(path_in_cloud, file.name))
+        os.remove(original_filepath)
+        if keep_in_cloud:
+            shutil.copytree(filepath_in_cloud, original_filepath)
+        else:
+            shutil.move(filepath_in_cloud, original_filepath)
+    if not keep_in_cloud:
+        os.rmdir(path_in_cloud)
+
+
 def is_synchronized(game):
     path_in_cloud = config.expand_path(os.path.join(config.cloudfolder, game.id))
     for file in game.files:

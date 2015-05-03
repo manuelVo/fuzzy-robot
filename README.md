@@ -56,11 +56,12 @@ To run fuzzy-robot from source you'll need to have the following dependencies in
 ### Backend
 - Add support for old games which put their save files into their installation folder instead of the user folder
 - Add support for games using the steam cloud
-- Add an option to revert games back from synchronized state to local saving
 - Check if a missing config file (and thus empty cloud folder string) causes odd behaviour
+- Speed up game list update
 
 ### Frontend
 - Add "all" checkbox under the game lists
+- Add a progress bar for long operations
 
 ### CLI
 - Create it
