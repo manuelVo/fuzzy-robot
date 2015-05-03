@@ -1,6 +1,7 @@
 from PySide.QtCore import *
 from PySide.QtGui import *
 import os.path
+from gui.conflict_resolution_dialog import ConflictResolutionDialog
 from gui.game_list import GameList
 from gui.move_syncfolder_dialog import MoveSyncfolderDialog
 from gui.syncfolder_picker import SyncfolderPicker
@@ -82,12 +83,29 @@ class MainWindow(QWidget):
             config.save()
             config.load()
 
+        remembered_resolution_strategy = None
         model = self.list_found_games.model
         for row in range(0, model.rowCount()):
             item = model.item(row)
+            game = item.game
             if item.checkState() == Qt.Checked:
-                # TODO Check for conflicts
-                savesync.move_save_to_cloud(item.game)
+                if savesync.has_conflicts(game):
+                    resolution_strategy = remembered_resolution_strategy
+                    if resolution_strategy is None:
+                        conflict_resolution_dialog = ConflictResolutionDialog(game.name)
+                        if conflict_resolution_dialog.exec():
+                            result = conflict_resolution_dialog.get_dialog_result()
+                            resolution_strategy = result[0]
+                            if result[1]:
+                                remembered_resolution_strategy = resolution_strategy
+                    if resolution_strategy == ConflictResolutionDialog.ResolutionMethod.OVERWRITE_LOCAL:
+                        savesync.remove_local_savegame(game)
+                        savesync.move_save_to_cloud(game)
+                    elif resolution_strategy == ConflictResolutionDialog.ResolutionMethod.OVERWRITE_CLOUD:
+                        savesync.remove_cloud_savegame(game)
+                        savesync.move_save_to_cloud(game)
+                else:
+                    savesync.move_save_to_cloud(game)
         self.refresh_games()
 
     def update_games_list(self):
