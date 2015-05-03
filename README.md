@@ -50,13 +50,7 @@ To submit a game either create an pull reqest with your changes or send your can
 To run fuzzy-robot from source you'll need to have the following dependencies installed
 
 - python3
-- python3-tkinter
-- python3-pil (python image library or pillow)
-- python3-imaging-tk (python image support for tkinter (might be included in python3-pil))
-
-Installation of requirements for Ubuntu users:
-
-<pre>sudo apt-get install python3 python3-tk python3-pil python3-imaging-tk</pre>
+- python3-pyside
 
 ## TODO
 ### Backend
@@ -65,8 +59,4 @@ Installation of requirements for Ubuntu users:
 - Add an option to revert games back from synchronized state to local saving
 
 ### Frontend
-- Get rid of tkinter
-- Make list of found games scrollable
-- Gui for linux which looks less crappy
-- Add an option to change the synchronization folder
-- Better conflict resolution dialog
+- Add "all" checkbox under the game lists
