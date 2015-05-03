@@ -1,6 +1,7 @@
 from PySide.QtGui import *
 import os.path
 from gui.filepicker import Filepicker
+import configuration as config
 
 
 class SyncfolderPicker(QDialog):
@@ -22,6 +23,7 @@ class SyncfolderPicker(QDialog):
         filedialog = QFileDialog()
         filedialog.setFileMode(filedialog.DirectoryOnly)
         self.filepicker = Filepicker(filedialog, self)
+        self.filepicker.set_file(config.cloudfolder)
         layout.addWidget(self.filepicker)
 
         button_group = QWidget(self)

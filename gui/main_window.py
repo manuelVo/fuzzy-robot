@@ -1,6 +1,8 @@
 from PySide.QtCore import *
 from PySide.QtGui import *
+import os.path
 from gui.game_list import GameList
+from gui.move_syncfolder_dialog import MoveSyncfolderDialog
 from gui.syncfolder_picker import SyncfolderPicker
 import savesync
 import configuration as config
@@ -42,6 +44,10 @@ class MainWindow(QWidget):
         button_update.clicked.connect(self.update_games_list)
         button_group_layout.addWidget(button_update)
 
+        button_change_syncfolder = QPushButton("Change sync folder", button_group)
+        button_change_syncfolder.clicked.connect(self.change_sync_folder)
+        button_group_layout.addWidget(button_change_syncfolder)
+
         layout.addWidget(button_group, 1, 3, Qt.AlignTop)
 
         if not config.exists():
@@ -70,7 +76,7 @@ class MainWindow(QWidget):
     def synchronize_games(self):
         if config.cloudfolder is None:
             folderpicker = SyncfolderPicker()
-            if not folderpicker.exec():
+            if folderpicker.exec():
                 return
             config.cloudfolder = folderpicker.get_syncfolder()
             config.save()
@@ -86,4 +92,26 @@ class MainWindow(QWidget):
 
     def update_games_list(self):
         config.update_games()
+        self.refresh_games()
+
+    def change_sync_folder(self):
+        folderpicker = SyncfolderPicker()
+        if not folderpicker.exec():
+            return
+        new_cloudfolder = folderpicker.get_syncfolder()
+        if new_cloudfolder == config.cloudfolder:
+            return
+        games = savesync.detect_games()
+        games_in_old_folder = [game for game in games if os.path.isdir(os.path.join(config.cloudfolder, game.id))]
+        if len(games_in_old_folder) > 0:
+            move_dialog = MoveSyncfolderDialog()
+            if not move_dialog.exec():
+                return
+            move = move_dialog.move
+            for game in games_in_old_folder:
+                if move:
+                    savesync.move_game_to_other_cloud(game, new_cloudfolder)
+        config.cloudfolder = new_cloudfolder
+        config.save()
+        config.load()
         self.refresh_games()
