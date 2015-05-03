@@ -52,6 +52,13 @@ To run fuzzy-robot from source you'll need to have the following dependencies in
 - python3
 - python3-pyside
 
+## Changelog
+### v1.1
+- New GUI written in Qt
+- Saves can now be un-synchronized
+- Improved conflict resolution
+- The sync-folder can now be changed
+
 ## TODO
 ### Backend
 - Add support for old games which put their save files into their installation folder instead of the user folder
