@@ -56,6 +56,19 @@
 		]
 	},
 	{
+		"id": "grand_theft_auto_iv",
+		"name": "Grand Theft Auto IV",
+		"files": [
+			{
+				"directory": false,
+				"name": "savegames",
+				"locations": {
+					"Windows": "%LOCALAPPDATA%\\Rockstar Games\\GTA IV\\savegames"
+				}
+			}
+		]
+	},
+	{
 		"id": "medieval_engineers",
 		"name": "Medieval Engineers",
 		"files": [
