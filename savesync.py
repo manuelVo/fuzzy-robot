@@ -46,8 +46,8 @@ def move_save_to_cloud(game):
             except KeyError:
                 pass
     else:
+        os.mkdir(path_in_cloud)
         for file in game.files:
-            os.mkdir(path_in_cloud)
             try:
                 original_filepath = config.expand_path(file.locations[platform.system()])
                 filepath_in_cloud = config.expand_path(os.path.join(path_in_cloud, file.name))
