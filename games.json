@@ -56,6 +56,28 @@
 		]
 	},
 	{
+		"id": "factorio",
+		"name": "Factorio",
+		"files": [
+			{
+				"directory": true,
+				"name": "saves",
+				"locations": {
+					"Linux": "~/.factorio/saves",
+					"Windows": "%APPDATA%\\Factorio\\saves"
+				}
+			},
+			{
+				"directory": false,
+				"name": "player-data.json",
+				"locations": {
+					"Linux": "~/.factorio/player-data.json",
+					"Windows": "%APPDATA%\\Factorio\\player-data.json"
+				}
+			}
+		]
+	},
+	{
 		"id": "grand_theft_auto_iv",
 		"name": "Grand Theft Auto IV",
 		"files": [
