@@ -172,6 +172,19 @@
 		]
 	},
 	{
+		"id": "party_hard",
+		"name": "Party Hard",
+		"files": [
+			{
+				"directory": false,
+				"name": "savedGames.gd",
+				"locations": {
+					"Linux": "~/.config/unity3d/PinoklGames/PartyHardGame/savedGames.gd"
+				}
+			}
+		]
+	},
+	{
 		"id": "penumbra_black_plague",
 		"name": "Penumbra Black Plague",
 		"files": [
