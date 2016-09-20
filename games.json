@@ -146,6 +146,19 @@
 		]
 	},
 	{
+		"id": "openrct2",
+		"name": "OpenRCT2",
+		"files": [
+			{
+				"directory": true,
+				"name": "save",
+				"locations": {
+					"Linux": "~/.config/OpenRCT2/save"
+				}
+			}
+		]
+	},
+	{
 		"id": "papers_please",
 		"name": "Papers, Please",
 		"files": [
