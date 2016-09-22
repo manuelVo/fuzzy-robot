@@ -155,6 +155,20 @@
 				"locations": {
 					"Linux": "~/.config/OpenRCT2/save"
 				}
+			},
+			{
+				"directory": true,
+				"name": "track",
+				"locations": {
+					"Linux": "~/.config/OpenRCT2/track"
+				}
+			},
+			{
+				"directory": false,
+				"name": "highscores.dat",
+				"locations": {
+					"Linux": "~/.config/OpenRCT2/highscores.dat"
+				}
 			}
 		]
 	},
