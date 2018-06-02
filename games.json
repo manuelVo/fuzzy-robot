@@ -56,6 +56,48 @@
 		]
 	},
 	{
+		"id": "door_kickers",
+		"name": "Door Kickers",
+		"files": [
+			{
+				"directory": true,
+				"name": "replays",
+				"locations": {
+					"Linux": "~/.local/share/DoorKickers/replays"
+				}
+			},
+			{
+				"directory": false,
+				"name": "doctrine.xml",
+				"locations": {
+					"Linux": "~/.local/share/DoorKickers/doctrine.xml"
+				}
+			},
+			{
+				"directory": false,
+				"name": "globalstats.xml",
+				"locations": {
+					"Linux": "~/.local/share/DoorKickers/globalstats.xml"
+
+				}
+			},
+			{
+				"directory": false,
+				"name": "roster.xml",
+				"locations": {
+					"Linux": "~/.local/share/DoorKickers/roster.xml"
+				}
+			},
+			{
+				"directory": false,
+				"name": "stats.xml",
+				"locations": {
+					"Linux": "~/.local/share/DoorKickers/stats.xml"
+				}
+			}
+		]
+	},
+	{
 		"id": "factorio",
 		"name": "Factorio",
 		"files": [
