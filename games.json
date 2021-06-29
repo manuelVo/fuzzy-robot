@@ -321,5 +321,19 @@
 				}
 			}
 		]
+	},
+	{
+		"id": "unrailed",
+		"name": "Unrailed!",
+		"files": [
+			{
+				"directory": true,
+				"name": "SaveGames",
+				"locations": {
+					"Linux": "~/.local/share/UnrailedGame/GameState/AllPlayers/SaveGames",
+					"Windows": "%LOCALAPPDATA%\\Daedalic Entertainment GmbH\\Unrailed\\GameState\\AllPlayers\\SaveGames"
+				}
+			}
+		]
 	}
 ]
