@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-from PySide.QtGui import *
+from PySide2.QtWidgets import *
 from gui.main_window import MainWindow
 
 app = QApplication(sys.argv)

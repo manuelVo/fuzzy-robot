@@ -1,4 +1,4 @@
-from PySide.QtGui import *
+from PySide2.QtWidgets import *
 from enum import Enum
 
 class MoveSyncfolderDialog(QDialog):

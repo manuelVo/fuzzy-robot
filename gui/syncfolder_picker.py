@@ -1,4 +1,4 @@
-from PySide.QtGui import *
+from PySide2.QtWidgets import *
 import os.path
 from gui.filepicker import Filepicker
 import configuration as config

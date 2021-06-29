@@ -1,5 +1,5 @@
-from PySide.QtCore import *
-from PySide.QtGui import *
+from PySide2.QtCore import *
+from PySide2.QtWidgets import *
 import os.path
 from gui.conflict_resolution_dialog import ConflictResolutionDialog
 from gui.game_list import GameList

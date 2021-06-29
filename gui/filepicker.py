@@ -1,4 +1,4 @@
-from PySide.QtGui import *
+from PySide2.QtWidgets import *
 import os.path
 import platform
 import configuration as config
